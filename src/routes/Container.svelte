@@ -1,3 +1,3 @@
-<div data-testid="container"></div>
-
-<slot />
+<div data-testid="container">
+    <slot />
+</div>
