@@ -4,6 +4,7 @@
     export let value = 0;
     let random = 0;
     let curr = "FizzBuzz";
+    let text = "FizzBuzz" + value.toString();
 
     function handleClick() {
 	    random = Math.floor(Math.random() * 10);
@@ -11,15 +12,19 @@
 
         if (value % 3 == 0 && value % 5 == 0){
             curr = "FizzBuzz";
+            text = "FizzBuzz " + value.toString();
         }
         else if (value % 3 == 0){
             curr = "Fizz";
+            text = "Fizz " + value.toString();
         }
         else if (value % 5 == 0){
             curr = "Buzz";
+            text = "Buzz " + value.toString();
         }
         else {
             curr = "Default";
+            text = value.toString();
         }
     }
 
@@ -39,11 +44,11 @@
     </button>
 
     <button data-testid="wonkier-button" on:click={handleClick} class="{isDisabled ? 'locked' : curr}" disabled={isDisabled}> 
-        {#if value % 3 == 0 && value % 5 == 0}
+        {#if curr == "FizzBuzz"}
             {'FizzBuzz ' + value}
-        {:else if value % 3 == 0}
+        {:else if curr == "Fizz"}
             {'Fizz ' + value}
-        {:else if value % 5 == 0}
+        {:else if curr == "Buzz"}
             {'Buzz ' + value}
         {:else}
             {value}
